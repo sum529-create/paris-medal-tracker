@@ -1,0 +1,13 @@
+.header{
+  /* @apply text-center font-bold text-2xl text-white px-0 py-8 rounded-[1.25rem]; */
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem; /* 2xl */
+  color: white;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 2rem; /* 8 */
+  padding-bottom: 2rem; /* 8 */
+  border-radius: 1.25rem 1.25rem 0 0;
+  background: linear-gradient(175deg, #6a11cb 10%, #2575fc 90%);
+}
