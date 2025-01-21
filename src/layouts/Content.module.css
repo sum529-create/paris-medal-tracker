@@ -4,3 +4,138 @@
   padding: 1rem 2rem;
   border-radius: 0 0 1.25rem 1.25rem;
 }
+
+.inputFormat {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.inputMain {
+  border-color: #cbd5e1;
+  background-color: #f1f5f9;
+  color: #64748b;
+}
+
+.inputSub:nth-child(2) {
+  border-color: #fecdd3;
+  background-color: #fff1f2;
+  color: #be123c;
+}
+
+.inputSub:nth-child(3) {
+  border-color: #bae6fd;
+  background-color: #f0f9ff;
+  color: #0284c7;
+}
+
+.inputSub:nth-child(4) {
+  border-color: #bbf7d0;
+  background-color: #f0fdf4;
+  color: #16a34a;
+}
+
+.input-format:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 폼 전체 레이아웃 */
+form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* 버튼 스타일 */
+form button {
+  grid-column: span 2;
+  padding: 12px;
+  background-color: #4ade80;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #22c55e;
+}
+
+/* Table */
+.tableWrapper {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1rem 0;
+}
+
+.tableHeader {
+  background-color: #e2e8f0;
+}
+
+.tableHeader th {
+  padding: 12px 16px;
+  text-align: center;
+  font-weight: bold;
+  color: #1e293b;
+  border-bottom: 2px solid #cbd5e1;
+}
+
+.tableRow {
+  transition: background-color 0.2s ease;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.tableRow:hover {
+  background-color: #f1f5f9;
+}
+
+.tableRow td {
+  padding: 12px 16px;
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.goldMedal {
+  color: #ca8a04;
+  font-weight: bold;
+}
+
+.silverMedal {
+  color: #6b7280;
+  font-weight: bold;
+}
+
+.bronzeMedal {
+  color: #d97706;
+  font-weight: bold;
+}
+
+.actionButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.actionButton:hover {
+  background-color: #f1f5f9;
+}
+.noData{
+  display: flex;
+  justify-content: center;
+  padding: 5rem;
+  margin: 1rem 0;
+}
