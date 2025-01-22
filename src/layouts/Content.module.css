@@ -1,6 +1,6 @@
-.content{
+.content {
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
-  background-color: #FFF;
+  background-color: #fff;
   padding: 1rem 2rem;
   border-radius: 0 0 1.25rem 1.25rem;
 }
@@ -36,36 +36,6 @@
   border-color: #bbf7d0;
   background-color: #f0fdf4;
   color: #16a34a;
-}
-
-.input-format:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
-}
-
-/* 폼 전체 레이아웃 */
-form {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-/* 버튼 스타일 */
-form button {
-  grid-column: span 2;
-  padding: 12px;
-  background-color: #4ade80;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-form button:hover {
-  background-color: #22c55e;
 }
 
 /* Table */
@@ -133,9 +103,27 @@ form button:hover {
 .actionButton:hover {
   background-color: #f1f5f9;
 }
-.noData{
+.noData {
   display: flex;
   justify-content: center;
   padding: 5rem;
   margin: 1rem 0;
+}
+
+/* 버튼 스타일 */
+.formButton {
+  grid-column: span 2;
+  padding: 12px;
+  background-color: #4ade80;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.formButton:hover {
+  background-color: #22c55e;
 }
