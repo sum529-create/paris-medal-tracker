@@ -3,7 +3,7 @@ import styles from './Content.module.css';
 import { getLocalStorage, setLocalStorage } from '../storage/localStorage';
 import MedalInputForm from '../components/olympic-medals/MedalInputForm';
 import Input from '../components/common/Input';
-import Button from '../components/common/Button';
+import Button from '../components/common/FormButton';
 import MedalTable from '../components/olympic-medals/MedalTable';
 
 const Content = () => {

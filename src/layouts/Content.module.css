@@ -91,39 +91,3 @@
   font-weight: bold;
 }
 
-.actionButton {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
-}
-
-.actionButton:hover {
-  background-color: #f1f5f9;
-}
-.noData {
-  display: flex;
-  justify-content: center;
-  padding: 5rem;
-  margin: 1rem 0;
-}
-
-/* 버튼 스타일 */
-.formButton {
-  grid-column: span 2;
-  padding: 12px;
-  background-color: #4ade80;
-  color: white;
-  border: none;
-  border-radius: 25px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.formButton:hover {
-  background-color: #22c55e;
-}
