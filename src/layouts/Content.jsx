@@ -67,6 +67,17 @@ const Content = () => {
     init();
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // 어떤 버튼이 눌렸는지 확인
+    const clickedButton = e.nativeEvent.submitter.name;
+    if(clickedButton === 'add'){
+      addNationHandler(e)
+    } else {
+      modifyNationHandler(e);
+    }
+  }
+
   const deleteNationHandler = (id) => {
     if(confirm('해당 국가를 삭제하시겠습니까?')){
       const newList = nationList.filter(e => e.id !== id)
@@ -80,7 +91,7 @@ const Content = () => {
   const {nationName, goldMedalCnt, silverMedalCnt, bronzeMedalCnt} = nation
   return (
     <div className={styles.content}>
-    <form className={styles.formGrid}>
+    <form className={styles.formGrid} onSubmit={handleSubmit}>
       <input 
         type="text" 
         name="nationName" 
@@ -114,17 +125,19 @@ const Content = () => {
         className={[styles.inputFormat, styles.inputSub].join(' ')}
       />
       <button 
-        type="button"
-        onClick={(e) => addNationHandler(e)}
+        type="submit"
+        name="add"
         className={styles.formButton}
-      >
+        >
+        {/* onClick={(e) => addNationHandler(e)} */}
         국가 추가
       </button>
       <button 
-        type="button"
-        onClick={(e) => modifyNationHandler(e)}
+        type="submit"
+        name="update"
         className={styles.formButton}
-      >
+        >
+        {/* onClick={(e) => modifyNationHandler(e)} */}
         업데이트
       </button>
     </form>
