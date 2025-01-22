@@ -1,12 +1,10 @@
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import '../../assets/styles/table.css'
 
-const MedalTable = ({children, wrapperClassName, headerClassName}) => {
-  const tableClass = classNames(wrapperClassName)
-  const headerClass = classNames(headerClassName)
+const MedalTable = ({children}) => {
   return (
-    <table className={tableClass}>
-      <thead className={headerClass}>
+    <table className='tableWrapper'>
+      <thead className='tableHeader'>
         <tr>
           <th>국가</th>
           <th>금메달</th>
