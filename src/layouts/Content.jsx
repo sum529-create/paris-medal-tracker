@@ -5,6 +5,21 @@ import MedalInputForm from '../components/olympic-medals/MedalInputForm';
 import Input from '../components/common/Input';
 import Button from '../components/common/FormButton';
 import MedalTable from '../components/olympic-medals/MedalTable';
+import styled from 'styled-components';
+
+const ContentWrapper = styled.div`
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 0 0 1.25rem 1.25rem;
+`;
+
+const NoData = styled.span`
+  display: flex;
+  justify-content: center;
+  padding: 5rem;
+  margin: 1rem 0;
+`
 
 const Content = () => {
   const [nationList, setNationList] = useState(() => {
@@ -102,7 +117,7 @@ const Content = () => {
 
   const { nationName, goldMedalCnt, silverMedalCnt, bronzeMedalCnt } = nation;
   return (
-    <div className={styles.content}>
+    <ContentWrapper className={styles.content}>
       <MedalInputForm
         handleSubmit={handleSubmit}
         nationName={nationName}
@@ -181,11 +196,11 @@ const Content = () => {
             ))}
           </MedalTable>
       ) : (
-        <span className={styles.noData}>
+        <NoData>
           아직 추가된 국가가 없습니다. 메달을 추적하세요!
-        </span>
+        </NoData>
       )}
-    </div>
+    </ContentWrapper>
   );
 };
 
