@@ -4,6 +4,7 @@ import { getLocalStorage, setLocalStorage } from '../storage/localStorage';
 import MedalInputForm from '../components/olympic-medals/MedalInputForm';
 import Input from '../components/common/Input';
 import Button from '../components/common/Button';
+import MedalTable from '../components/olympic-medals/MedalTable';
 
 const Content = () => {
   const [nationList, setNationList] = useState(() => {
@@ -156,18 +157,7 @@ const Content = () => {
         </Button>
       </MedalInputForm>
       {nationList && nationList.length > 0 ? (
-        <table className={styles.tableWrapper}>
-          <thead className={styles.tableHeader}>
-            <tr>
-              <th>국가</th>
-              <th>금메달</th>
-              <th>은메달</th>
-              <th>동메달</th>
-              <th>총메달</th>
-              <th>액션</th>
-            </tr>
-          </thead>
-          <tbody>
+          <MedalTable wrapperClassName={styles.tableWrapper} headerClassName={styles.tableHeader} >
             {nationList.map((nation) => (
               <tr key={nation.id} className={styles.tableRow}>
                 <td>{nation.nationName}</td>
@@ -189,8 +179,7 @@ const Content = () => {
                 </td>
               </tr>
             ))}
-          </tbody>
-        </table>
+          </MedalTable>
       ) : (
         <span className={styles.noData}>
           아직 추가된 국가가 없습니다. 메달을 추적하세요!
