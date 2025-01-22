@@ -3,8 +3,24 @@ import styles from './Content.module.css';
 import { getLocalStorage, setLocalStorage } from '../storage/localStorage';
 import MedalInputForm from '../components/olympic-medals/MedalInputForm';
 import Input from '../components/common/Input';
-import Button from '../components/common/Button';
+import Button from '../components/common/FormButton';
 import MedalTable from '../components/olympic-medals/MedalTable';
+import styled from 'styled-components';
+import ActionButton from '../components/common/ActionButton';
+
+const ContentWrapper = styled.div`
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 0 0 1.25rem 1.25rem;
+`;
+
+const NoData = styled.span`
+  display: flex;
+  justify-content: center;
+  padding: 5rem;
+  margin: 1rem 0;
+`
 
 const Content = () => {
   const [nationList, setNationList] = useState(() => {
@@ -102,7 +118,7 @@ const Content = () => {
 
   const { nationName, goldMedalCnt, silverMedalCnt, bronzeMedalCnt } = nation;
   return (
-    <div className={styles.content}>
+    <ContentWrapper className={styles.content}>
       <MedalInputForm
         handleSubmit={handleSubmit}
         nationName={nationName}
@@ -117,7 +133,7 @@ const Content = () => {
           value={nationName}
           onChange={nationInputHandler}
           placeholder="국가명"
-          className={[styles.inputFormat, styles.inputMain].join(' ')}
+          className="inputMain"
         />
         <Input
           type="number"
@@ -125,7 +141,7 @@ const Content = () => {
           value={goldMedalCnt.toString()}
           onChange={nationInputHandler}
           placeholder="금메달"
-          className={[styles.inputFormat, styles.inputSub].join(' ')}
+          className="inputSub"
         />
         <Input
           type="number"
@@ -133,7 +149,7 @@ const Content = () => {
           value={silverMedalCnt.toString()}
           onChange={nationInputHandler}
           placeholder="은메달"
-          className={[styles.inputFormat, styles.inputSub].join(' ')}
+          className="inputSub"
         />
         <Input
           type="number"
@@ -141,7 +157,7 @@ const Content = () => {
           value={bronzeMedalCnt.toString()}
           onChange={nationInputHandler}
           placeholder="동메달"
-          className={[styles.inputFormat, styles.inputSub].join(' ')}
+          className="inputSub"
         />
         <Button 
           type="submit" 
@@ -170,22 +186,19 @@ const Content = () => {
                     nation.bronzeMedalCnt}
                 </td>
                 <td>
-                  <button
-                    className={styles.actionButton}
-                    onClick={() => deleteNationHandler(nation.id)}
-                  >
+                  <ActionButton eventHandler={deleteNationHandler} id={nation.id}>
                     삭제
-                  </button>
+                  </ActionButton>
                 </td>
               </tr>
             ))}
           </MedalTable>
       ) : (
-        <span className={styles.noData}>
+        <NoData>
           아직 추가된 국가가 없습니다. 메달을 추적하세요!
-        </span>
+        </NoData>
       )}
-    </div>
+    </ContentWrapper>
   );
 };
 

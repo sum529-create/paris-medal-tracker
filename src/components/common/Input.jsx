@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import '../../assets/styles/input.css'
 
 const Input = ({type, name, value, onChange, placeholder, className}) => {
   return (
@@ -8,7 +9,7 @@ const Input = ({type, name, value, onChange, placeholder, className}) => {
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      className={className}
+      className={`inputFormat ${className}`}
     />
   )
 }
