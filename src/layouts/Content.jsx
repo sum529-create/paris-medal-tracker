@@ -6,6 +6,7 @@ import Input from '../components/common/Input';
 import Button from '../components/common/FormButton';
 import MedalTable from '../components/olympic-medals/MedalTable';
 import styled from 'styled-components';
+import ActionButton from '../components/common/ActionButton';
 
 const ContentWrapper = styled.div`
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
@@ -185,12 +186,9 @@ const Content = () => {
                     nation.bronzeMedalCnt}
                 </td>
                 <td>
-                  <button
-                    className={styles.actionButton}
-                    onClick={() => deleteNationHandler(nation.id)}
-                  >
+                  <ActionButton eventHandler={deleteNationHandler} id={nation.id}>
                     삭제
-                  </button>
+                  </ActionButton>
                 </td>
               </tr>
             ))}
