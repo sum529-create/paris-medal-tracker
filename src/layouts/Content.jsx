@@ -67,8 +67,14 @@ const Content = () => {
     init();
   }
 
-  const handleEdit = () => {
-
+  const deleteNationHandler = (id) => {
+    if(confirm('해당 국가를 삭제하시겠습니까?')){
+      const newList = nationList.filter(e => e.id !== id)
+      setNationList(newList);
+      setLocalStorage('nationList', newList);
+      init();
+      return alert('삭제되었습니다!');
+    }
   }
 
   const {nationName, goldMedalCnt, silverMedalCnt, bronzeMedalCnt} = nation
@@ -146,7 +152,7 @@ const Content = () => {
                 <td>
                   <button 
                     className={styles.actionButton}
-                    onClick={() => handleEdit(nation)}
+                    onClick={() => deleteNationHandler(nation.id)}
                   >
                     삭제
                   </button>
