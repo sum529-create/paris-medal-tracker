@@ -132,7 +132,7 @@ const Content = () => {
           value={nationName}
           onChange={nationInputHandler}
           placeholder="국가명"
-          className={[styles.inputFormat, styles.inputMain].join(' ')}
+          className="inputMain"
         />
         <Input
           type="number"
@@ -140,7 +140,7 @@ const Content = () => {
           value={goldMedalCnt.toString()}
           onChange={nationInputHandler}
           placeholder="금메달"
-          className={[styles.inputFormat, styles.inputSub].join(' ')}
+          className="inputSub"
         />
         <Input
           type="number"
@@ -148,7 +148,7 @@ const Content = () => {
           value={silverMedalCnt.toString()}
           onChange={nationInputHandler}
           placeholder="은메달"
-          className={[styles.inputFormat, styles.inputSub].join(' ')}
+          className="inputSub"
         />
         <Input
           type="number"
@@ -156,7 +156,7 @@ const Content = () => {
           value={bronzeMedalCnt.toString()}
           onChange={nationInputHandler}
           placeholder="동메달"
-          className={[styles.inputFormat, styles.inputSub].join(' ')}
+          className="inputSub"
         />
         <Button 
           type="submit" 
