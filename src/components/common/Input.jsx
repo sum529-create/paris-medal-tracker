@@ -7,6 +7,7 @@ const Input = ({type, name, id, value, onChange, placeholder, className}) => {
       type={type}
       name={name}
       id={id}
+      min={type === 'number' && "0"}
       value={value}
       onChange={onChange}
       placeholder={placeholder}
