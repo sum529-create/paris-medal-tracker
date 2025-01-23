@@ -209,7 +209,7 @@ const Content = () => {
               })
               .map((nation) => (
                 <MedalInputFormRow key={nation.id} value={nation}>
-                    <ActionButton eventHandler={() => deleteNationHandler} id={nation.id}>
+                    <ActionButton eventHandler={deleteNationHandler} id={nation.id}>
                       삭제
                     </ActionButton>
                 </MedalInputFormRow>
