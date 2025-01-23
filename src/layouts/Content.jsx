@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import ActionButton from '../components/common/ActionButton';
 import MedalInputFormRow from '../components/olympic-medals/MedalInputFormRow';
 import Toggle from '../components/common/Toggle/Toggle';
+import InfoText from '../components/common/InfoText';
 
 const ContentWrapper = styled.div`
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
@@ -175,6 +176,9 @@ const Content = () => {
           className={styles.formButton}>
           업데이트
         </Button>
+        <InfoText>
+          리스트에 해당 국가가 추가된 상태여야 업데이트 버튼을 사용하실 수 있습니다.
+        </InfoText>
         <Toggle mode="nationSort" checked={isToggled} onChange={() => setIsToggled(!isToggled)}/>
       </MedalInputForm>
       {nationList && nationList.length > 0 ? (
