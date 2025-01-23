@@ -86,7 +86,7 @@ const Content = () => {
       return alert('국가명을 입력하세요.');
     }
     if (!nationList.some(e => e.nationName === nation.nationName)) {
-      return alert('수정하실 등록된 국가명을 입력하세요.');
+      return alert('존재하지 않는 국가입니다.\n수정하실 등록된 국가명을 입력하세요.');
     }
     
     const updatedList = nationList.map((pre) => {
