@@ -23,11 +23,12 @@
   cursor: pointer;
   padding: 8px;
   border-radius: 4px;
-  transition: background-color 0.2s ease;
+  color: #ff6347;
+  transition: color 0.2s ease;
 }
 
 .actionButton:hover {
-  background-color: #f1f5f9;
+  color: #ff0000;
 }
 
 @media (max-width: 768px){
