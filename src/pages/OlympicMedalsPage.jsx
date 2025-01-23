@@ -1,5 +1,5 @@
 import Content from '../layouts/Content';
-import Header from '../layouts/Header';
+import Header from '../layouts/Header/Header';
 
 const OlympicMedalsPage = () => {
   return (
