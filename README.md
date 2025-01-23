@@ -28,6 +28,7 @@ project-root/
    │   │   └── Input.jsx
    │   └── olympic-medals/
    │       ├── MedalInputForm.jsx
+   │       ├── MedalInputWrapper.jsx
    │       ├── MedalTableRow.jsx
    │       └── MedalTable.jsx
    ├── layouts/
