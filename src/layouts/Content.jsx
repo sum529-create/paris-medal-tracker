@@ -82,7 +82,13 @@ const Content = () => {
 
   const modifyNationHandler = (e) => {
     e.preventDefault();
-
+    if (!nation.nationName) {
+      return alert('국가명을 입력하세요.');
+    }
+    if (!nationList.some(e => e.nationName === nation.nationName)) {
+      return alert('수정하실 등록된 국가명을 입력하세요.');
+    }
+    
     const updatedList = nationList.map((pre) => {
       if (pre.nationName === nation.nationName) {
         return {
