@@ -5,6 +5,10 @@ const Form = styled.form`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
+  @media (max-width: 768px) {
+   grid-template-columns: repeat(6, 1fr);
+   gap: 8px;
+ }
 `
 const MedalInputForm = ({handleSubmit, children}) => {
   return (

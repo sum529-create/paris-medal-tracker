@@ -39,3 +39,8 @@
 .toggleInput:checked+.toggleLabel::before {
   transform: translateX(32px);
 }
+@media (max-width: 768px) {
+  .toggleWrapper {
+    grid-column: span 6;
+  }
+}

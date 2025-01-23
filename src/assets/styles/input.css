@@ -30,3 +30,15 @@
   background-color: #f0fdf4;
   color: #16a34a;
 }
+
+@media (max-width: 768px){
+  .input-format {
+    padding: 8px 12px;
+  }
+  .input-main{
+    grid-column: span 6;
+  }
+  .input-sub{
+    grid-column: span 2;
+  }
+}
