@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import styles from './Content.module.css';
 import { getLocalStorage, setLocalStorage } from '../storage/localStorage';
 import MedalInputForm from '../components/olympic-medals/MedalInputForm';
 import Input from '../components/common/Input';
@@ -129,7 +128,7 @@ const Content = () => {
 
   const { nationName, goldMedalCnt, silverMedalCnt, bronzeMedalCnt } = nation;
   return (
-    <ContentWrapper className={styles.content}>
+    <ContentWrapper>
       <MedalInputForm
         handleSubmit={handleSubmit}
         nationName={nationName}
@@ -144,7 +143,7 @@ const Content = () => {
           value={nationName}
           onChange={nationInputHandler}
           placeholder="국가명"
-          className="inputMain"
+          className="input-main"
         />
         <Input
           type="number"
@@ -152,7 +151,7 @@ const Content = () => {
           value={goldMedalCnt.toString()}
           onChange={nationInputHandler}
           placeholder="금메달"
-          className="inputSub"
+          className="input-sub"
         />
         <Input
           type="number"
@@ -160,7 +159,7 @@ const Content = () => {
           value={silverMedalCnt.toString()}
           onChange={nationInputHandler}
           placeholder="은메달"
-          className="inputSub"
+          className="input-sub input"
         />
         <Input
           type="number"
@@ -168,18 +167,18 @@ const Content = () => {
           value={bronzeMedalCnt.toString()}
           onChange={nationInputHandler}
           placeholder="동메달"
-          className="inputSub"
+          className="input-sub"
         />
         <Button 
           type="submit" 
           name="add" 
-          className={styles.formButton}>
+          className="form-button">
           국가 추가
         </Button>
         <Button 
           type="submit" 
           name="update" 
-          className={styles.formButton}>
+          className="form-button">
           업데이트
         </Button>
         <InfoText>
@@ -188,7 +187,7 @@ const Content = () => {
         <Toggle mode="nationSort" checked={isToggled} onChange={() => setIsToggled(!isToggled)}/>
       </MedalInputForm>
       {nationList && nationList.length > 0 ? (
-          <MedalTable wrapperClassName={styles.tableWrapper} headerClassName={styles.tableHeader} >
+          <MedalTable>
             {nationList.sort((a, b) => {
                 if(isToggled){
                   if (b.goldMedalCnt !== a.goldMedalCnt) {

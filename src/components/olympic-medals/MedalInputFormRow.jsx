@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 const MedalInputFormRow = ({children, value}) => {
   const {nationName, goldMedalCnt, silverMedalCnt, bronzeMedalCnt} = value
   return (
-    <tr className="tableRow">
+    <tr className="table-row">
       <td>{nationName}</td>
-      <td className="goldMedal">{goldMedalCnt}</td>
-      <td className="silverMedal">{silverMedalCnt}</td>
-      <td className="styles.bronzeMedal">{bronzeMedalCnt}</td>
+      <td className="gold-medal">{goldMedalCnt}</td>
+      <td className="silver-medal">{silverMedalCnt}</td>
+      <td className="styles.bronze-medal">{bronzeMedalCnt}</td>
       <td>
         {goldMedalCnt +
           silverMedalCnt +

@@ -1,5 +1,5 @@
 /* 메인 버튼 스타일 */
-.formButton {
+.form-button {
   grid-column: span 2;
   padding: 12px;
   background-color: #4ade80;
@@ -12,7 +12,7 @@
   transition: background-color 0.3s ease;
 }
 
-.formButton:hover {
+.form-button:hover {
   background-color: #22c55e;
 }
 
