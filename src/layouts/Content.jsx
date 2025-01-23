@@ -7,6 +7,8 @@ import Button from '../components/common/FormButton';
 import MedalTable from '../components/olympic-medals/MedalTable';
 import styled from 'styled-components';
 import ActionButton from '../components/common/ActionButton';
+import MedalInputFormRow from '../components/olympic-medals/MedalInputFormRow';
+import Toggle from '../components/common/Toggle/Toggle';
 
 const ContentWrapper = styled.div`
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
@@ -34,6 +36,8 @@ const Content = () => {
     silverMedalCnt: 0,
     bronzeMedalCnt: 0,
   });
+
+  const [isToggled, setIsToggled] = useState(false);
 
   const nationInputHandler = (e) => {
     const { value, name } = e.target;
@@ -171,27 +175,36 @@ const Content = () => {
           className={styles.formButton}>
           업데이트
         </Button>
+        <Toggle mode="nationSort" checked={isToggled} onChange={() => setIsToggled(!isToggled)}/>
       </MedalInputForm>
       {nationList && nationList.length > 0 ? (
           <MedalTable wrapperClassName={styles.tableWrapper} headerClassName={styles.tableHeader} >
-            {nationList.map((nation) => (
-              <tr key={nation.id} className={styles.tableRow}>
-                <td>{nation.nationName}</td>
-                <td className={styles.goldMedal}>{nation.goldMedalCnt}</td>
-                <td className={styles.silverMedal}>{nation.silverMedalCnt}</td>
-                <td className={styles.bronzeMedal}>{nation.bronzeMedalCnt}</td>
-                <td>
-                  {nation.goldMedalCnt +
-                    nation.silverMedalCnt +
-                    nation.bronzeMedalCnt}
-                </td>
-                <td>
-                  <ActionButton eventHandler={deleteNationHandler} id={nation.id}>
-                    삭제
-                  </ActionButton>
-                </td>
-              </tr>
-            ))}
+            {nationList.sort((a, b) => {
+                if(isToggled){
+                  if (b.goldMedalCnt !== a.goldMedalCnt) {
+                    return b.goldMedalCnt - a.goldMedalCnt;
+                  }
+                  if (b.silverMedalCnt !== a.silverMedalCnt) {
+                    return b.silverMedalCnt - a.silverMedalCnt;
+                  }
+                  return b.bronzeMedalCnt - a.bronzeMedalCnt;
+                } else {
+                  return (b.goldMedalCnt +
+                    b.silverMedalCnt +
+                    b.bronzeMedalCnt) - (a.goldMedalCnt +
+                    a.silverMedalCnt +
+                    a.bronzeMedalCnt
+                  )
+                }
+              })
+              .map((nation) => (
+                <MedalInputFormRow key={nation.id} value={nation}>
+                    <ActionButton eventHandler={() => deleteNationHandler} id={nation.id}>
+                      삭제
+                    </ActionButton>
+                </MedalInputFormRow>
+              ))
+            }
           </MedalTable>
       ) : (
         <NoData>

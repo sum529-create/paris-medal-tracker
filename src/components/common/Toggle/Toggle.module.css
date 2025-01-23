@@ -1,0 +1,39 @@
+.toggleWrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggleInput {
+  display: none;
+}
+
+.toggleLabel {
+  position: relative;
+  width: 60px;
+  height: 28px;
+  background-color: #e0e0e0;
+  border-radius: 34px;
+  transition: background-color 0.3s ease;
+}
+
+.toggleLabel::before {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.toggleInput:checked+.toggleLabel {
+  background-color: #4ade80;
+}
+
+.toggleInput:checked+.toggleLabel::before {
+  transform: translateX(32px);
+}
