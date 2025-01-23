@@ -6,7 +6,7 @@ import Button from '../components/common/FormButton';
 import MedalTable from '../components/olympic-medals/MedalTable';
 import styled from 'styled-components';
 import ActionButton from '../components/common/ActionButton';
-import MedalInputFormRow from '../components/olympic-medals/MedalInputFormRow';
+import MedalTableRow from '../components/olympic-medals/MedalTableRow';
 import Toggle from '../components/common/Toggle/Toggle';
 import InfoText from '../components/common/InfoText';
 
@@ -207,11 +207,11 @@ const Content = () => {
                 }
               })
               .map((nation) => (
-                <MedalInputFormRow key={nation.id} value={nation}>
+                <MedalTableRow key={nation.id} value={nation}>
                     <ActionButton eventHandler={deleteNationHandler} id={nation.id}>
                       <i className="material-symbols-outlined">delete</i>
                     </ActionButton>
-                </MedalInputFormRow>
+                </MedalTableRow>
               ))
             }
           </MedalTable>
