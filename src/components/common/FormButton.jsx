@@ -3,7 +3,7 @@ import '../../assets/styles/button.css'
 
 const FormButton = ({name, children}) => {
   return (
-    <button type="submit" name={name} className='formButton'>
+    <button type="submit" name={name} className='form-button'>
       {children}
     </button>
   )

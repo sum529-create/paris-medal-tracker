@@ -9,7 +9,7 @@ const Input = ({type, name, value, onChange, placeholder, className}) => {
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      className={`inputFormat ${className}`}
+      className={`input-format ${className}`}
     />
   )
 }
