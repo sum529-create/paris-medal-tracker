@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 import OlympicMedalsPage from './pages/OlympicMedalsPage';
-import './styles/tailwind.css';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}

@@ -18,6 +18,9 @@ const InfoInnerText = styled.span`
     left: 5px;
     align-self: center;
   }
+  @media (max-width: 768px){
+    grid-column: span 6;
+  }
 `
 
 const InfoText = ({children}) => {

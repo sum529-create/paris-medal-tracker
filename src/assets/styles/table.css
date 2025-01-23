@@ -1,16 +1,16 @@
 /* Table */
-.tableWrapper {
+.table-wrapper {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
   margin: 1rem 0;
 }
 
-.tableHeader {
+.table-header {
   background-color: #e2e8f0;
 }
 
-.tableHeader th {
+.table-header th {
   padding: 12px 16px;
   text-align: center;
   font-weight: bold;
