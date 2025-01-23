@@ -3,8 +3,8 @@ import '../../assets/styles/table.css'
 
 const MedalTable = ({children}) => {
   return (
-    <table className='tableWrapper'>
-      <thead className='tableHeader'>
+    <table className='table-wrapper'>
+      <thead className='table-header'>
         <tr>
           <th>국가</th>
           <th>금메달</th>
