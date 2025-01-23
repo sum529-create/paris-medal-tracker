@@ -5,11 +5,11 @@ const MedalInputFormRow = ({children, value}) => {
   const {nationName, goldMedalCnt, silverMedalCnt, bronzeMedalCnt} = value
   return (
     <tr className="table-row">
-      <td>{nationName}</td>
-      <td className="gold-medal">{goldMedalCnt}</td>
-      <td className="silver-medal">{silverMedalCnt}</td>
-      <td className="styles.bronze-medal">{bronzeMedalCnt}</td>
-      <td>
+      <td data-label="국가">{nationName}</td>
+      <td data-label="금메달" className="gold-medal">{goldMedalCnt}</td>
+      <td data-label="은메달" className="silver-medal">{silverMedalCnt}</td>
+      <td data-label="동메달" className="bronze-medal">{bronzeMedalCnt}</td>
+      <td data-label="총메달">
         {goldMedalCnt +
           silverMedalCnt +
           bronzeMedalCnt}
