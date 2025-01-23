@@ -1,3 +1,9 @@
+:root {
+  --color-gold: #be123c;
+  --color-silver: #0284c7;
+  --color-bronze: #16a34a;
+}
+
 .input-format {
   width: 100%;
   padding: 12px 16px;
@@ -13,32 +19,36 @@
   color: #64748b;
 }
 
-.input-sub:nth-child(2) {
+.input-gold-medal {
   border-color: #fecdd3;
   background-color: #fff1f2;
-  color: #be123c;
+  color: var(--color-gold);
 }
 
-.input-sub:nth-child(3) {
+.input-silver-medal {
   border-color: #bae6fd;
   background-color: #f0f9ff;
-  color: #0284c7;
+  color: var(--color-silver)
 }
 
-.input-sub:nth-child(4) {
+.input-bronze-medal {
   border-color: #bbf7d0;
   background-color: #f0fdf4;
-  color: #16a34a;
+  color: var(--color-bronze);
+}
+.label-main label, .label-sub label{
+  font-size: 0.875rem;
+  color: #333;
+  margin: .25rem 0;
+  display: inline-block;
 }
 
 @media (max-width: 768px){
-  .input-format {
-    padding: 8px 12px;
-  }
-  .input-main{
+  .label-main {
     grid-column: span 6;
   }
-  .input-sub{
+
+  .label-sub {
     grid-column: span 2;
   }
 }

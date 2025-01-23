@@ -6,9 +6,10 @@ import Button from '../components/common/FormButton';
 import MedalTable from '../components/olympic-medals/MedalTable';
 import styled from 'styled-components';
 import ActionButton from '../components/common/ActionButton';
-import MedalInputFormRow from '../components/olympic-medals/MedalInputFormRow';
+import MedalTableRow from '../components/olympic-medals/MedalTableRow';
 import Toggle from '../components/common/Toggle/Toggle';
 import InfoText from '../components/common/InfoText';
+import MedalInputWrapper from '../components/olympic-medals/MedalInputWrapper';
 
 const ContentWrapper = styled.div`
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
@@ -137,38 +138,50 @@ const Content = () => {
         silverMedalCnt={silverMedalCnt}
         bronzeMedalCnt={bronzeMedalCnt}
       >
-        <Input
-          type="text"
-          name="nationName"
-          value={nationName}
-          onChange={nationInputHandler}
-          placeholder="국가명"
-          className="input-main"
-        />
-        <Input
-          type="number"
-          name="goldMedalCnt"
-          value={goldMedalCnt.toString()}
-          onChange={nationInputHandler}
-          placeholder="금메달"
-          className="input-sub"
-        />
-        <Input
-          type="number"
-          name="silverMedalCnt"
-          value={silverMedalCnt.toString()}
-          onChange={nationInputHandler}
-          placeholder="은메달"
-          className="input-sub input"
-        />
-        <Input
-          type="number"
-          name="bronzeMedalCnt"
-          value={bronzeMedalCnt.toString()}
-          onChange={nationInputHandler}
-          placeholder="동메달"
-          className="input-sub"
-        />
+        <MedalInputWrapper labelName="국가명" labelFor="nationName" className="label-main">
+          <Input
+            type="text"
+            name="nationName"
+            id="nationName"
+            value={nationName}
+            onChange={nationInputHandler}
+            placeholder="국가명"
+            className="input-main"
+          />
+        </MedalInputWrapper>
+        <MedalInputWrapper labelName="금메달" labelFor="goldMedalCnt" className="label-sub">
+          <Input
+            type="number"
+            name="goldMedalCnt"
+            id="goldMedalCnt"
+            value={goldMedalCnt.toString()}
+            onChange={nationInputHandler}
+            placeholder="금메달"
+            className="input-sub input-gold-medal"
+          />
+        </MedalInputWrapper>
+        <MedalInputWrapper labelName="은메달" labelFor="silverMedalCnt" className="label-sub">
+          <Input
+            type="number"
+            name="silverMedalCnt"
+            id="silverMedalCnt"
+            value={silverMedalCnt.toString()}
+            onChange={nationInputHandler}
+            placeholder="은메달"
+            className="input-sub input-silver-medal"
+          />
+        </MedalInputWrapper>
+        <MedalInputWrapper labelName="동메달" labelFor="bronzeMedalCnt" className="label-sub">
+          <Input
+            type="number"
+            name="bronzeMedalCnt"
+            id="bronzeMedalCnt"
+            value={bronzeMedalCnt.toString()}
+            onChange={nationInputHandler}
+            placeholder="동메달"
+            className="input-sub input-bronze-medal"
+          />
+        </MedalInputWrapper>
         <Button 
           type="submit" 
           name="add" 
@@ -207,11 +220,11 @@ const Content = () => {
                 }
               })
               .map((nation) => (
-                <MedalInputFormRow key={nation.id} value={nation}>
+                <MedalTableRow key={nation.id} value={nation}>
                     <ActionButton eventHandler={deleteNationHandler} id={nation.id}>
                       <i className="material-symbols-outlined">delete</i>
                     </ActionButton>
-                </MedalInputFormRow>
+                </MedalTableRow>
               ))
             }
           </MedalTable>
