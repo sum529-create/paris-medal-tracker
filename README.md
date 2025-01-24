@@ -65,7 +65,8 @@ project-root/
 ### 메달 관리 컴포넌트
 
 - `MedalInputForm`: 메달 데이터 입력 폼
-- `MedalInputFormRow`: 국가별 메달 현황 행
+- `MedalInputWrapper`: 메달 입력 필드를 감싸는 라벨 래퍼 역할
+- `MedalTableRow`: 국가별 메달 현황 행
 - `MedalTable`: 메달 현황 테이블
 
 ### 레이아웃 컴포넌트
@@ -83,3 +84,8 @@ project-root/
 
 - CSS Modules로 컴포넌트별 스타일 관리
 - 버튼과 입력 필드의 전역 스타일 적용
+
+## 👩🏻‍🔧 트러블 슈팅
+
+- [React에서 props 관련 에러 해결 방법](https://velog.io/@sum529/Trouble-Shooting-React-PropTypes)
+- [React key prop 경고 해결 방법](https://velog.io/@sum529/Trouble-Shooting-React-Key-Props-%ED%8A%B8%EB%9F%AC%EB%B8%94-%EC%8A%88%ED%8C%85)
