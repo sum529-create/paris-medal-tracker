@@ -22,7 +22,12 @@ const InfoInnerText = styled.span`
     grid-column: span 6;
   }
 `
-
+/**
+ * InfoText 컴포넌트
+ * - 안내 문구 텍스트 관련 컴포넌트
+ * 
+ * @param {node} children - span 내에 렌더링 될 내용 
+ */
 const InfoText = ({children}) => {
   return (
     <InfoInnerText>{children}</InfoInnerText>
