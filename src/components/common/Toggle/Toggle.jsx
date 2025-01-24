@@ -1,6 +1,15 @@
 import PropTypes from 'prop-types';
 import styles from './Toggle.module.css';
 
+/**
+ * Toggle 컴포넌트
+ * - 체크박스 기반으로 두 가지 모드를 전환하는 UI를 제공한다.
+ * - 사용자가 체크박스를 클릭하면 'onChange' 이벤트 핸들러가 호출되어 상태를 변경한다.
+ * 
+ * @param {string} mode - 모드에 따라 다른 아이콘을 렌더링하기 위한 옵션
+ * @param {boolean} checked - 체크박스의 상태 (체크됨/체크 안 됨)
+ * @param {function} onChange - 체크박스 상태 변경 시 호출되는 함수
+ */
 const Toggle = ({ 
   mode,
   checked, 

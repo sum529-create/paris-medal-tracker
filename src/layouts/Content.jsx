@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { getLocalStorage, setLocalStorage } from '../storage/localStorage';
 import MedalInputForm from '../components/olympic-medals/MedalInputForm';
 import Input from '../components/common/Input';
-import Button from '../components/common/FormButton';
+import FormButton from '../components/common/FormButton';
 import MedalTable from '../components/olympic-medals/MedalTable';
 import styled from 'styled-components';
 import ActionButton from '../components/common/ActionButton';
@@ -26,31 +26,33 @@ const NoData = styled.span`
 `
 
 const Content = () => {
+  // 국가 목록을 localStorage에서 가져와 상태로 초기화
   const [nationList, setNationList] = useState(() => {
     return getLocalStorage('nationList') || [];
   });
 
+  // 국가 정보 초기 상태
   const [nation, setNation] = useState({
-    id: crypto.randomUUID(),
+    id: crypto.randomUUID(),  // 고유 ID 생성
     nationName: '',
     goldMedalCnt: 0,
     silverMedalCnt: 0,
     bronzeMedalCnt: 0,
   });
 
+  // 토글 상태
   const [isToggled, setIsToggled] = useState(false);
 
+  // 입력 값 처리 핸들러
   const nationInputHandler = (e) => {
     const { value, name } = e.target;
     setNation((pre) => ({
       ...pre,
-      [name]:
-        name.includes("MedalCnt")
-          ? Number(value)
-          : value,
+      [name]: name.includes("MedalCnt") ? Number(value) : value,  // 숫자 입력시 Number 변환
     }));
   };
 
+  // 입력 초기화 함수
   const init = () => {
     setNation({
       id: crypto.randomUUID(),
@@ -61,21 +63,25 @@ const Content = () => {
     });
   };
 
+  // 국가 추가 핸들러
   const addNationHandler = (e) => {
     e.preventDefault();
     if (!nation.nationName) {
       return alert('국가명을 입력하세요.');
     }
+    // 이미 등록된 국가인지 확인
     if (nationList.some((e) => e.nationName === nation.nationName)) {
       init();
       return alert('이미 등록된 국가입니다.');
     }
+    // 국가 추가 후 localStorage에 저장
     const newNationList = [...nationList, nation];
     setNationList(newNationList);
     setLocalStorage('nationList', newNationList);
     init();
   };
 
+  // 국가 수정 핸들러
   const modifyNationHandler = (e) => {
     e.preventDefault();
     if (!nation.nationName) {
@@ -85,6 +91,7 @@ const Content = () => {
       return alert('존재하지 않는 국가입니다.\n수정하실 등록된 국가명을 입력하세요.');
     }
     
+    // 국가 정보 수정
     const updatedList = nationList.map((pre) => {
       if (pre.nationName === nation.nationName) {
         return {
@@ -102,6 +109,7 @@ const Content = () => {
     init();
   };
 
+  // 폼 제출 핸들러
   const handleSubmit = (e) => {
     e.preventDefault();
     // 어떤 버튼이 눌렸는지 확인
@@ -113,6 +121,7 @@ const Content = () => {
     }
   };
 
+  // 국가 삭제 핸들러
   const deleteNationHandler = (id) => {
     if (confirm('해당 국가를 삭제하시겠습니까?')) {
       const newList = nationList.filter((e) => e.id !== id);
@@ -178,18 +187,18 @@ const Content = () => {
             className="input-sub input-bronze-medal"
           />
         </MedalInputWrapper>
-        <Button 
+        <FormButton 
           type="submit" 
           name="add" 
           className="form-button">
           국가 추가
-        </Button>
-        <Button 
+        </FormButton>
+        <FormButton 
           type="submit" 
           name="update" 
           className="form-button">
           업데이트
-        </Button>
+        </FormButton>
         <InfoText>
           리스트에 해당 국가가 추가된 상태여야 업데이트 버튼을 사용하실 수 있습니다.
         </InfoText>
@@ -199,6 +208,7 @@ const Content = () => {
           <MedalTable>
             {nationList.sort((a, b) => {
                 if(isToggled){
+                  // 금메달, 은메달, 동메달 기준으로 내림차순 정렬
                   if (b.goldMedalCnt !== a.goldMedalCnt) {
                     return b.goldMedalCnt - a.goldMedalCnt;
                   }
@@ -207,6 +217,7 @@ const Content = () => {
                   }
                   return b.bronzeMedalCnt - a.bronzeMedalCnt;
                 } else {
+                  // 총 메달 수 기준으로 내림차순 정렬
                   return (b.goldMedalCnt +
                     b.silverMedalCnt +
                     b.bronzeMedalCnt) - (a.goldMedalCnt +
