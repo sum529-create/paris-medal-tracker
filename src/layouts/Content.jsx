@@ -45,9 +45,7 @@ const Content = () => {
     setNation((pre) => ({
       ...pre,
       [name]:
-        name === 'goldMedalCnt' ||
-        name === 'silverMedalCnt' ||
-        name === 'bronzeMedalCnt'
+        name.includes("MedalCnt")
           ? Number(value)
           : value,
     }));
@@ -68,9 +66,7 @@ const Content = () => {
     if (!nation.nationName) {
       return alert('국가명을 입력하세요.');
     }
-    if (
-      nationList.filter((e) => e.nationName === nation.nationName).length > 0
-    ) {
+    if (nationList.some((e) => e.nationName === nation.nationName)) {
       init();
       return alert('이미 등록된 국가입니다.');
     }
