@@ -64,8 +64,7 @@ const Content = () => {
   };
 
   // 국가 추가 핸들러
-  const addNationHandler = (e) => {
-    e.preventDefault();
+  const addNationHandler = () => {
     if (!nation.nationName) {
       return alert('국가명을 입력하세요.');
     }
@@ -82,8 +81,7 @@ const Content = () => {
   };
 
   // 국가 수정 핸들러
-  const modifyNationHandler = (e) => {
-    e.preventDefault();
+  const modifyNationHandler = () => {
     if (!nation.nationName) {
       return alert('국가명을 입력하세요.');
     }
@@ -115,9 +113,9 @@ const Content = () => {
     // 어떤 버튼이 눌렸는지 확인
     const clickedButton = e.nativeEvent.submitter.name;
     if (clickedButton === 'add') {
-      addNationHandler(e);
+      addNationHandler();
     } else {
-      modifyNationHandler(e);
+      modifyNationHandler();
     }
   };
 
