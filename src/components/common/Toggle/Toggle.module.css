@@ -32,11 +32,11 @@
   transition: transform 0.3s ease;
 }
 
-.toggleInput:checked+.toggleLabel {
+.toggleInput:checked + .toggleLabel {
   background-color: #4ade80;
 }
 
-.toggleInput:checked+.toggleLabel::before {
+.toggleInput:checked + .toggleLabel::before {
   transform: translateX(32px);
 }
 @media (max-width: 768px) {

@@ -31,8 +31,8 @@
   color: #ff0000;
 }
 
-@media (max-width: 768px){
-  .form-button{
+@media (max-width: 768px) {
+  .form-button {
     grid-column: span 3;
   }
 }

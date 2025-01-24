@@ -23,7 +23,7 @@ const NoData = styled.span`
   justify-content: center;
   padding: 5rem;
   margin: 1rem 0;
-`
+`;
 
 const Content = () => {
   // 국가 목록을 localStorage에서 가져와 상태로 초기화
@@ -33,7 +33,7 @@ const Content = () => {
 
   // 국가 정보 초기 상태
   const [nation, setNation] = useState({
-    id: crypto.randomUUID(),  // 고유 ID 생성
+    id: crypto.randomUUID(), // 고유 ID 생성
     nationName: '',
     goldMedalCnt: 0,
     silverMedalCnt: 0,
@@ -48,7 +48,7 @@ const Content = () => {
     const { value, name } = e.target;
     setNation((pre) => ({
       ...pre,
-      [name]: name.includes("MedalCnt") ? Number(value) : value,  // 숫자 입력시 Number 변환
+      [name]: name.includes('MedalCnt') ? Number(value) : value, // 숫자 입력시 Number 변환
     }));
   };
 
@@ -85,10 +85,12 @@ const Content = () => {
     if (!nation.nationName) {
       return alert('국가명을 입력하세요.');
     }
-    if (!nationList.some(e => e.nationName === nation.nationName)) {
-      return alert('존재하지 않는 국가입니다.\n수정하실 등록된 국가명을 입력하세요.');
+    if (!nationList.some((e) => e.nationName === nation.nationName)) {
+      return alert(
+        '존재하지 않는 국가입니다.\n수정하실 등록된 국가명을 입력하세요.'
+      );
     }
-    
+
     // 국가 정보 수정
     const updatedList = nationList.map((pre) => {
       if (pre.nationName === nation.nationName) {
@@ -141,7 +143,11 @@ const Content = () => {
         silverMedalCnt={silverMedalCnt}
         bronzeMedalCnt={bronzeMedalCnt}
       >
-        <MedalInputWrapper labelName="국가명" labelFor="nationName" className="label-main">
+        <MedalInputWrapper
+          labelName="국가명"
+          labelFor="nationName"
+          className="label-main"
+        >
           <Input
             type="text"
             name="nationName"
@@ -152,7 +158,11 @@ const Content = () => {
             className="input-main"
           />
         </MedalInputWrapper>
-        <MedalInputWrapper labelName="금메달" labelFor="goldMedalCnt" className="label-sub">
+        <MedalInputWrapper
+          labelName="금메달"
+          labelFor="goldMedalCnt"
+          className="label-sub"
+        >
           <Input
             type="number"
             name="goldMedalCnt"
@@ -163,7 +173,11 @@ const Content = () => {
             className="input-sub input-gold-medal"
           />
         </MedalInputWrapper>
-        <MedalInputWrapper labelName="은메달" labelFor="silverMedalCnt" className="label-sub">
+        <MedalInputWrapper
+          labelName="은메달"
+          labelFor="silverMedalCnt"
+          className="label-sub"
+        >
           <Input
             type="number"
             name="silverMedalCnt"
@@ -174,7 +188,11 @@ const Content = () => {
             className="input-sub input-silver-medal"
           />
         </MedalInputWrapper>
-        <MedalInputWrapper labelName="동메달" labelFor="bronzeMedalCnt" className="label-sub">
+        <MedalInputWrapper
+          labelName="동메달"
+          labelFor="bronzeMedalCnt"
+          className="label-sub"
+        >
           <Input
             type="number"
             name="bronzeMedalCnt"
@@ -185,58 +203,55 @@ const Content = () => {
             className="input-sub input-bronze-medal"
           />
         </MedalInputWrapper>
-        <FormButton 
-          type="submit" 
-          name="add" 
-          className="form-button">
+        <FormButton type="submit" name="add" className="form-button">
           국가 추가
         </FormButton>
-        <FormButton 
-          type="submit" 
-          name="update" 
-          className="form-button">
+        <FormButton type="submit" name="update" className="form-button">
           업데이트
         </FormButton>
         <InfoText>
-          리스트에 해당 국가가 추가된 상태여야 업데이트 버튼을 사용하실 수 있습니다.
+          리스트에 해당 국가가 추가된 상태여야 업데이트 버튼을 사용하실 수
+          있습니다.
         </InfoText>
-        <Toggle mode="nationSort" checked={isToggled} onChange={() => setIsToggled(!isToggled)}/>
+        <Toggle
+          mode="nationSort"
+          checked={isToggled}
+          onChange={() => setIsToggled(!isToggled)}
+        />
       </MedalInputForm>
       {nationList && nationList.length > 0 ? (
-          <MedalTable>
-            {nationList.sort((a, b) => {
-                if(isToggled){
-                  // 금메달, 은메달, 동메달 기준으로 내림차순 정렬
-                  if (b.goldMedalCnt !== a.goldMedalCnt) {
-                    return b.goldMedalCnt - a.goldMedalCnt;
-                  }
-                  if (b.silverMedalCnt !== a.silverMedalCnt) {
-                    return b.silverMedalCnt - a.silverMedalCnt;
-                  }
-                  return b.bronzeMedalCnt - a.bronzeMedalCnt;
-                } else {
-                  // 총 메달 수 기준으로 내림차순 정렬
-                  return (b.goldMedalCnt +
-                    b.silverMedalCnt +
-                    b.bronzeMedalCnt) - (a.goldMedalCnt +
-                    a.silverMedalCnt +
-                    a.bronzeMedalCnt
-                  )
+        <MedalTable>
+          {nationList
+            .sort((a, b) => {
+              if (isToggled) {
+                // 금메달, 은메달, 동메달 기준으로 내림차순 정렬
+                if (b.goldMedalCnt !== a.goldMedalCnt) {
+                  return b.goldMedalCnt - a.goldMedalCnt;
                 }
-              })
-              .map((nation) => (
-                <MedalTableRow key={nation.id} value={nation}>
-                    <ActionButton eventHandler={deleteNationHandler} id={nation.id}>
-                      <i className="material-symbols-outlined">delete</i>
-                    </ActionButton>
-                </MedalTableRow>
-              ))
-            }
-          </MedalTable>
+                if (b.silverMedalCnt !== a.silverMedalCnt) {
+                  return b.silverMedalCnt - a.silverMedalCnt;
+                }
+                return b.bronzeMedalCnt - a.bronzeMedalCnt;
+              } else {
+                // 총 메달 수 기준으로 내림차순 정렬
+                return (
+                  b.goldMedalCnt +
+                  b.silverMedalCnt +
+                  b.bronzeMedalCnt -
+                  (a.goldMedalCnt + a.silverMedalCnt + a.bronzeMedalCnt)
+                );
+              }
+            })
+            .map((nation) => (
+              <MedalTableRow key={nation.id} value={nation}>
+                <ActionButton eventHandler={deleteNationHandler} id={nation.id}>
+                  <i className="material-symbols-outlined">delete</i>
+                </ActionButton>
+              </MedalTableRow>
+            ))}
+        </MedalTable>
       ) : (
-        <NoData>
-          아직 추가된 국가가 없습니다. 메달을 추적하세요!
-        </NoData>
+        <NoData>아직 추가된 국가가 없습니다. 메달을 추적하세요!</NoData>
       )}
     </ContentWrapper>
   );

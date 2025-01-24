@@ -28,7 +28,7 @@
 .input-silver-medal {
   border-color: #bae6fd;
   background-color: #f0f9ff;
-  color: var(--color-silver)
+  color: var(--color-silver);
 }
 
 .input-bronze-medal {
@@ -36,14 +36,15 @@
   background-color: #f0fdf4;
   color: var(--color-bronze);
 }
-.label-main label, .label-sub label{
+.label-main label,
+.label-sub label {
   font-size: 0.875rem;
   color: #333;
-  margin: .25rem 0;
+  margin: 0.25rem 0;
   display: inline-block;
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
   .label-main {
     grid-column: span 6;
   }

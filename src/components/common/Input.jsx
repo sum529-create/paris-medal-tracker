@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import '../../assets/styles/input.css'
+import '../../assets/styles/input.css';
 
 /**
  * Input 컴포넌트
@@ -14,20 +14,20 @@ import '../../assets/styles/input.css'
  * @param {string} placeholder - 입력 필드에 표시될 힌트 텍스트
  * @param {string} className - 추가적인 CSS 클래스를 추가할 수 있는 옵션
  */
-const Input = ({type, name, id, value, onChange, placeholder, className}) => {
+const Input = ({ type, name, id, value, onChange, placeholder, className }) => {
   return (
     <input
       type={type}
       name={name}
       id={id}
-      min={type === 'number' && "0"}
+      min={type === 'number' && '0'}
       value={value}
       onChange={onChange}
       placeholder={placeholder}
       className={`input-format ${className}`}
     />
-  )
-}
+  );
+};
 Input.propTypes = {
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
@@ -35,7 +35,7 @@ Input.propTypes = {
   onChange: PropTypes.func.isRequired,
   id: PropTypes.string,
   placeholder: PropTypes.string,
-  className: PropTypes.string
-}
+  className: PropTypes.string,
+};
 
-export default Input
+export default Input;
